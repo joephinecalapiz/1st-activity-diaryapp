@@ -59,15 +59,9 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    double baseWidth = 360.0015258789;
     return Scaffold(
       appBar: AppBar(),
-      body: SizedBox(
-        width: double.infinity,
-        child: SizedBox(
-          width: double.infinity,
-          height: 800,
-          child: Stack(
+      body: Stack(
             children: [
               Positioned(
                 left: 0,
@@ -79,7 +73,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: background != null
                           ? Image.file(background!, fit: BoxFit.cover)
                           : Image.asset(
-                        'assets/images/cover.png',
+                        'assets/images/logo-diary.png',
                         fit: BoxFit.cover,
                       )),
                 ),
@@ -137,7 +131,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
               Positioned(
-                left: 0.0015258789,
+                left: 0.0015,
                 top: 320,
                 child: Align(
                   child: SizedBox(
@@ -196,7 +190,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     width: 82,
                     height: 23,
                     child: Text(
-                      '@Joephine7',
+                      '@Joephine',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 15,
@@ -279,22 +273,16 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ],
           ),
-        ),
-      ),
     );
   }
 
-  void navigateToLogin()  {
-    showMyDialog;
-  }
-
-  Future <void> showMyDialog(BuildContext context) async {
+  Future <void> logoutDialog(BuildContext context) async {
     return showDialog <void>(
       context: context,
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Confirm Logout?'),
+          title: const Text('Confirm Logout'),
           content: SingleChildScrollView(
             child: ListBody(
               children: const <Widget>[

@@ -50,7 +50,7 @@ class _ActionButtonsState extends State<ActionButtons> {
                         ),
                       ),
                       Text(
-                        'MAR 3/2023',
+                        'MAR 21/2023',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontFamily: "Oranienbaum",
@@ -75,22 +75,16 @@ class _ActionButtonsState extends State<ActionButtons> {
                 style: TextButton.styleFrom(
                     foregroundColor: Colors.white
                 ),
-                onPressed: () {
+                onPressed: () async{
                   Navigator.push(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const HomeScreen()));
+                      MaterialPageRoute(builder: (context) => const HomeScreen()
+                      )
+                  );
                 },
                 child: const Icon(Icons.mode_edit_outlined,color: Colors.white,)
 
             ),
-
-
-            // const Icon(
-            //   Icons.mode_edit_outlined,
-            //   color: Colors.white,
-            // ),
-
           ),
           const SizedBox(width: 10.0),
           // calender switch button

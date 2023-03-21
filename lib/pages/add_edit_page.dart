@@ -116,7 +116,7 @@ class _AddEditPageState extends State<AddEditPage> {
       titleController.text = '';
       descriptionController.text = '';
 
-      showSuccessMessage('Update successfully');
+      showSuccessMessage('Update Diary successfully');
     } else {
       showErrorMessage('Update unsuccessful');
     }
@@ -142,7 +142,7 @@ class _AddEditPageState extends State<AddEditPage> {
       titleController.text = '';
       descriptionController.text = '';
 
-      showSuccessMessage('Create successfully');
+      showSuccessMessage('Create successfully. go back to Homepage');
     } else {
       showErrorMessage('Unable to create');
     }

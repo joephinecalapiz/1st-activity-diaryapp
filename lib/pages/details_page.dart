@@ -36,14 +36,20 @@ class _DiaryDetailsState extends State<DiaryDetails> {
           ),
           actions: <Widget>[
             Padding(
-                padding: const EdgeInsets.only(right: 1.0),
-                child: InkWell(
+              padding: const EdgeInsets.only(right: 10.0),
+              child: Container(
+                  width: 40.0,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                  child: InkWell(
                     onTap: () {
                       getImg();
                     },
                     child: const Icon(Icons.image_outlined,
-                        color: Colors.green, size: 35))),
-          ],
+                        color: Colors.black, size: 35))),
+            )],
         ),
         body: ListView(
           padding: EdgeInsets.zero,
@@ -57,7 +63,7 @@ class _DiaryDetailsState extends State<DiaryDetails> {
                       child: Image.file(File(imgPath!),
                           width: double.infinity,
                           height: coverHeight,
-                          fit: BoxFit.cover)),
+                          fit: BoxFit.fill)),
               ],
             ),
             const SizedBox(height: 30),

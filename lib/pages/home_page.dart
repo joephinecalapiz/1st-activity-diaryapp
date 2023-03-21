@@ -1,9 +1,8 @@
 import 'package:diaryapp/pages/add_edit_page.dart';
 import 'package:diaryapp/pages/details_page.dart';
-import 'package:diaryapp/pages/profile_page.dart';
+import 'package:diaryapp/pages/homescreen_page.dart';
+import 'package:diaryapp/widget/drawerwidget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
 
@@ -16,6 +15,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
 
   bool isLoading = true;
   List items = [];
@@ -23,36 +24,49 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    // getTodo();
     fetchTodo();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: scaffoldKey,
         appBar: AppBar(
             centerTitle: true,
             title: const Text("My Diary",
                 style: TextStyle(
                     fontFamily: "Mynerve",
+                    fontSize: 25,
                     fontWeight: FontWeight.bold),
             ),
-            actions: <Widget>[
-              TextButton(
-                style: TextButton.styleFrom(
-                    foregroundColor: Colors.white,
-                ),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ProfilePage()));
-                },
-                child: const Icon(Icons.person_rounded,color: Colors.white),
 
-              ),
-            ]
+            // actions: <Widget>[
+            //   Padding(
+            //     padding: const EdgeInsets.only(right: 12.0),
+            //     child: Container(
+            //       width: 40.0,
+            //       decoration: const BoxDecoration(
+            //         color: Colors.white,
+            //         shape: BoxShape.circle,
+            //       ),
+            //       child: TextButton(
+            //           style: TextButton.styleFrom(
+            //               foregroundColor: Colors.white
+            //           ),
+            //           onPressed: () {
+            //             Navigator.push(
+            //                 context,
+            //                 MaterialPageRoute(
+            //                     builder: (context) => const HomePage()));
+            //           },
+            //           child: const Icon(Icons.calendar_month_rounded,color: Colors.black,)
+            //
+            //       ),
+            //     ),
+            //     ),
+            // ]
         ),
+        drawer: MainDrawer(),
         body: Container(
           height: 900,
           width: double.infinity,
@@ -230,7 +244,7 @@ class _HomeScreenState extends State<HomeScreen> {
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Confirm Diary Deletion?'),
+          title: const Text('Confirm Diary Deletion'),
           content: SingleChildScrollView(
             child: ListBody(
               children:const  <Widget>[
